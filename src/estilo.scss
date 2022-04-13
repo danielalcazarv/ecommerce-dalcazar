@@ -20,3 +20,14 @@ $body-color: #111;
 .navbar-light .navbar-brand {
     color: #ffffff;
 }
+
+.btn-outline-success {
+    color: #ffffff;
+    border-color: #5200dd;
+    &:hover{
+        background-color: #5200dd;
+    }
+    &:active{
+        background-color: #5200dd;
+    }
+}
