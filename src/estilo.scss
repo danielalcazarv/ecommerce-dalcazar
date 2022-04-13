@@ -8,6 +8,15 @@ $body-color: #111;
 
 .nav__custom{
     background-color: #F55353;
-    color: #ffffff;
+    background-image: url(./img/wave.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.navbar-light .navbar-brand {
+    color: #ffffff;
 }
