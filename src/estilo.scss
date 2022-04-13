@@ -1,5 +1,13 @@
-// Para pisar las variables agregarlas ANTES del import-->
-
+// Override default variables before the import
+// Default variable overrides
+$body-bg: #ffffff;
+$body-color: #111;
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
+
+.nav__custom{
+    background-color: #F55353;
+    color: #ffffff;
+
+}
