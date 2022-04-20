@@ -1,4 +1,6 @@
 import logo from "../img/wheelie.png"
+import { Button } from "bootstrap";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
     return (
@@ -8,7 +10,7 @@ const NavBar = () => {
                         <a className="navbar-brand" href="../public/index.html">
                             <div className="container fluid">
                                 <img className="d-inline col-2" src={logo} alt="wheelie-logo"/>
-                                <h1 className="d-inline col-2 px-3">Wheelie Bikes</h1>
+                                <h3 className="d-inline col-2 px-3">Wheelie Bikes</h3>
                             </div>
                         </a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +38,9 @@ const NavBar = () => {
                             <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
                             <button className="btn btn-outline-success" type="submit">Ir</button>
                         </form>
+                        </div>
+                        <div className="container nav__cart m-2 p-0">
+                            <CartWidget/>
                         </div>
                     </div>
                 </nav>

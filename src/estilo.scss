@@ -3,8 +3,35 @@
 $body-bg: #ffffff;
 $body-color: #111;
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html , body , #root {
+    height: 100vh;
+}
+
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+#root > main , #root > .item__list , #root > footer {
+    padding: 1rem;
+}
+
+#root > main {
+    flex-grow: 1;
+}
+
+
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
+
+
 
 .nav__custom{
     background-color: #F55353;
@@ -13,11 +40,20 @@ $body-color: #111;
     background-repeat: no-repeat;
 }
 
+.nav__cart{
+    max-width: 36px;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: #ffffff;
 }
 
 .navbar-light .navbar-brand {
+    color: #ffffff;
+}
+
+.material-icons{
+    font-size: 36px;
     color: #ffffff;
 }
 
