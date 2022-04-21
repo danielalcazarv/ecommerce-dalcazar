@@ -7,7 +7,7 @@ const App = () => {
     return (
         <>
         <NavBar/>
-        <ItemListContainer/>
+        <ItemListContainer greeting={"Bienvenido a Wheelies! No olvides revisar nuestra sección de OFERTAS."}/>
         <Main/>
         <Footer/>
         </>
