@@ -8,7 +8,7 @@ const ItemListContainer = ({greeting}) => {
             <p className="container text-center">
             {greeting}
             </p>
-            <ItemCount stock={10} init={0} onAdd={onAdd}/>
+            <ItemCount stock={5} init={1} onAdd={onAdd}/>
         </div>
     )
 }

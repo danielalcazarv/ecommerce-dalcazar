@@ -7,20 +7,22 @@ const ItemCount = ( {init,stock,onAdd} ) => {
         if(contador<stock){
             setContador(contador+1)
         }else{
-            Swal.fire(
-                'Cantidad Máxima',
-                'Has seleccionado la cantidad máxima disponible',
-                'warning'
-            )
+            Swal.fire({
+                icon: 'warning',
+                title: 'Cantidad Máxima Seleccionada',
+                showConfirmButton: false,
+                timer: 1200
+            })
         }
     }
     const restar = () => {
-        if (contador<1){
-            Swal.fire(
-                'Debes Agregar Unidades',
-                'No has agregado unidades para comprar',
-                'error'
-            )
+        if (contador<2){
+            Swal.fire({
+                icon: 'error',
+                title: 'Cantidad mínima 1 unidad',
+                showConfirmButton: false,
+                timer: 1200
+            })
         }else{
             setContador(contador-1)
         }
@@ -31,18 +33,20 @@ const ItemCount = ( {init,stock,onAdd} ) => {
     }
     return (
     <div className="container count__custom mx-auto">
-        <p>Unidades seleccionadas: {contador}</p>
-        <button onClick={restar} className="btn btn-success p-0">
+        <div className="d-flex flex-wrap justify-content-evenly py-2">
+        <button onClick={restar} className="btn btn-success p-0 mx-2">
             <span className="material-icons">
                 remove
             </span>
         </button>
-        <button onClick={confirmar} className="btn btn-success">Agregar al Carrito</button>
-        <button onClick={sumar} className="btn btn-success p-0">
+        <p className="mx-5">{contador}</p>
+        <button onClick={sumar} className="btn btn-success p-0 mx-2">
             <span className="material-icons">
                 add
             </span>
         </button>
+        </div>
+        <button onClick={confirmar} className="btn btn-success m-2">Agregar al Carrito</button>
     </div>
     )
 }
