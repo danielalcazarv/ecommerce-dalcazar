@@ -30,6 +30,10 @@ const ItemCount = ( {init,stock,onAdd} ) => {
     const confirmar = () =>{
         console.log(contador)
         onAdd(contador)
+        Swal.fire({
+            icon: 'success',
+            title: 'Agregaste '+contador+' unidad/es',
+        })
     }
     return (
     <div className="container count__custom mx-auto">
