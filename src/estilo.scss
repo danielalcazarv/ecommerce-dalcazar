@@ -44,6 +44,10 @@ html , body , #root {
     max-width: 36px;
 }
 
+.count__custom{
+    width: 18rem;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: #ffffff;
 }
@@ -60,10 +64,24 @@ html , body , #root {
 .btn-outline-success {
     color: #ffffff;
     border-color: #5200dd;
-    &:hover{
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus{
         background-color: #5200dd;
+        border-color: #5200dd;
     }
-    &:active{
+}
+
+.btn-success{
+    background-color: #F55353;
+    border-color: #5200dd;
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus{
         background-color: #5200dd;
+        border-color: #5200dd;
+        box-shadow: #5200dd;
     }
 }
