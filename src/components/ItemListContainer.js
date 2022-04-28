@@ -49,27 +49,27 @@ const ItemListContainer = ({greeting}) => {
     
     if (cargando){
         return(
-            <div className="item__list--container">
-            <p className="container text-center">
-            {greeting}
-            </p>
-            <div className="container text-center">
-                <p>Cargando productos...</p>
-                <div className="spinner-border text-success" role="status">
-                    <span className="visually-hidden">Loading...</span>
+            <div className="container">
+                <p className="container text-center">
+                {greeting}
+                </p>
+                <div className="container text-center">
+                    <p>Cargando productos...</p>
+                    <div className="spinner-border text-success" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
                 </div>
-            </div>
             </div>
         )
     }else{
         return (
-            <div className="item__list--container">
-            <p className="container text-center">
-            {greeting}
-            </p>
-            <div className="container text-center">
-                <ItemList productos={productos}/>
-            </div>
+            <div className="container">
+                <p className="container text-center">
+                {greeting}
+                </p>
+                <div className="container text-center">
+                    <ItemList productos={productos}/>
+                </div>
             </div>
         )
     }

@@ -10,7 +10,7 @@ const Items = ({producto}) => {
                 <h6 className="card-text">{producto.marca}</h6>
                 <p className="card-text">{producto.detalle}</p>
                 <p className="card-text">Precio: USD ${producto.precio}</p>
-                <a href="#" className="btn btn-success">Ver Más</a>
+                <button className="btn btn-success">Ver Más</button>
             </div>
             <ItemCount stock={5} init={1} onAdd={onAdd}/>
         </article>

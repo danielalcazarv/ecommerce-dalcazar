@@ -1,9 +1,11 @@
-import React from 'react'
+import ItemListContainer from "./ItemListContainer"
+import ItemDetailContainer from "./ItemDetailContainer"
 
 const Main = () => {
   return (
     <main>
-        <p>Aca va el main</p>
+        <ItemListContainer greeting={"Bienvenido a Wheelies! No olvides revisar nuestra sección de OFERTAS."}/>
+        <ItemDetailContainer/>
     </main>
   )
 }
