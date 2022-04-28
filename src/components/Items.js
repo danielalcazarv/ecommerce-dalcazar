@@ -7,6 +7,7 @@ const Items = ({producto}) => {
             <img src={producto.img} className="card-img-top" alt={producto.titulo}/>
             <div className="card-body">
                 <h5 className="card-title">{producto.titulo}</h5>
+                <h6 className="card-text">{producto.marca}</h6>
                 <p className="card-text">{producto.detalle}</p>
                 <p className="card-text">Precio: USD ${producto.precio}</p>
                 <a href="#" className="btn btn-success">Ver Más</a>

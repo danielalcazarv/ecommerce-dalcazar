@@ -36,7 +36,7 @@ const ItemCount = ( {init,stock,onAdd} ) => {
         })
     }
     return (
-    <div className="container count__custom mx-auto">
+    <div className="container count__custom">
         <div className="d-flex flex-wrap justify-content-evenly py-2">
         <button onClick={restar} className="btn btn-success p-0 mx-2">
             <span className="material-icons">
