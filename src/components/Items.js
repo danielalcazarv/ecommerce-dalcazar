@@ -3,7 +3,7 @@ import ItemCount from "./ItemCount"
 const Items = ({producto}) => {
     const onAdd = ()=>{}
     return (
-        <article className="card item__card m-2">
+        <article className="card item__card m-2 col-3 text-center">
             <img src={producto.img} className="card-img-top" alt={producto.titulo}/>
             <div className="card-body">
                 <h5 className="card-title">{producto.titulo}</h5>
