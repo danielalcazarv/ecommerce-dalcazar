@@ -133,7 +133,7 @@ const ItemListContainer = ({greeting}) => {
     return(
         cargando ? 
             (<>
-                <p className="container text-center">
+                <p className="text-center text__highlight">
                     {greeting}
                 </p>
                 <div className="container text-center">
@@ -144,7 +144,7 @@ const ItemListContainer = ({greeting}) => {
                 </div>
             </>):
             (<>
-                <p className="container text-center">
+                <p className="text-center text__highlight">
                     {greeting}
                 </p>
                 <div className="container">
