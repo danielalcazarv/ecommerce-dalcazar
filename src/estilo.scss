@@ -57,6 +57,20 @@ html , body , #root {
     border-radius: .25rem;
 }
 
+footer ul li .footer__link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s;
+    &:hover{
+        color: #f64672;;
+    }
+}
+
+#footer__style{
+    color:#ffffff;
+    font-weight: 500;
+}
+
 .item__card{
     width: 19rem;
 }
@@ -107,4 +121,9 @@ html , body , #root {
 
 .text-success{
     color: #5200dd  !important;
+    }
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+    color: #ffffff;
+    font-weight: 700;
     }

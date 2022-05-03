@@ -1,37 +1,37 @@
 import logo from "../img/wheelie.png"
-import { Button } from "bootstrap";
 import CartWidget from "./CartWidget";
+import { Link, NavLink} from "react-router-dom";
 
 const NavBar = () => {
     return (
             <header className="header">
                 <nav className="navbar navbar-expand-lg navbar-light nav__custom">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="../public/index.html">
+                        <Link className="navbar-brand" to="/">
                             <div className="container fluid">
                                 <img className="d-inline col-2" src={logo} alt="wheelie-logo"/>
                                 <h3 className="d-inline col-2 px-3">Wheelie Bikes</h3>
                             </div>
-                        </a>
+                        </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">Bicicletas</a>
+                                <NavLink className="nav-link" aria-current="page" to="/bicicletas">Bicicletas</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Componentes</a>
+                                <NavLink className="nav-link" to="/componentes">Componentes</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Accesorios</a>
+                                <NavLink className="nav-link" to="accesorios">Accesorios</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Indumentaria</a>
+                                <NavLink className="nav-link" to="indumentaria">Indumentaria</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">OFERTAS</a>
+                                <NavLink className="nav-link" to="ofertas">OFERTAS</NavLink>
                             </li>
                         </ul>
                         <form className="d-flex">
@@ -40,7 +40,9 @@ const NavBar = () => {
                         </form>
                         </div>
                         <div className="container nav__cart m-2 p-0">
-                            <CartWidget/>
+                            <Link to="/cart">
+                                <CartWidget/>
+                            </Link>
                         </div>
                     </div>
                 </nav>
