@@ -120,7 +120,7 @@ const ItemListContainer = ({greeting}) => {
         const pedido = new Promise ((res)=>{
             setTimeout(() => {
                 res(productosIniciales)
-            }, 2000);
+            }, 500);
         })
         pedido
         .then(()=>{

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
 
 const productosIniciales = [
@@ -115,21 +116,24 @@ const productosIniciales = [
 const ItemDetailContainer = () => {
     const [cargando, setCargando] = useState(true)
     const [productos, setProductos] = useState({})
+    const {id} = useParams()
 
     useEffect(()=>{
         const pedido = new Promise ((res)=>{
             setTimeout(() => {
                 res(productosIniciales)
-            }, 2000);
+            }, 500);
         })
         pedido
         .then(()=>{
-            console.log("Vamos bien!")
+            const resultado = productosIniciales.filter((producto)=>{
+                return producto.id == id
+            })[0]
+            setProductos(resultado)
             setCargando(false)
-            setProductos(productosIniciales)
         })
-    }, 
-    [])
+    })
+
     return (
         cargando ? 
             (<div className="container">
@@ -142,7 +146,7 @@ const ItemDetailContainer = () => {
             </div>):
             (<div className="container">
                 <section className="container">
-                    <ItemDetail productos={productos[0]}/>
+                    <ItemDetail productos={productos}/>
                 </section>
             </div>)
     )

@@ -16,9 +16,13 @@ const ItemDetail = ({productos}) => {
                             <p className="card-text text-center">Color: {productos.color}</p>
                             <p className="card-text text-center">Tamaño: {productos.size}</p>
                             <ItemCount stock={5} init={1} onAdd={onAdd}/>
-                            <p className="card-text">{productos.detallexl}</p>
+                            
                         </div>
                     </div>
+                </div>
+                <div className="container border-top my-3">
+                    <h6 className="mt-2">Descripción del Producto</h6>
+                    <p>{productos.detallexl}</p>
                 </div>
             </div>
         </article>

@@ -1,4 +1,4 @@
-import logo from "../img/wheelie.png"
+import logo from "../img/wheelie.png";
 import CartWidget from "./CartWidget";
 import { Link, NavLink} from "react-router-dom";
 

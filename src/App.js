@@ -6,9 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 const App = () => {
     return (
         <BrowserRouter>
-        <NavBar/>
-        <Main/>
-        <Footer/>
+            <NavBar/>
+            <Main/>
+            <Footer/>
         </BrowserRouter>
     )
 };
