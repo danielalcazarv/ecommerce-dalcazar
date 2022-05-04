@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
 
 const productosIniciales = [
@@ -6,9 +7,10 @@ const productosIniciales = [
         id:1,
         titulo:"SISKIU N9",
         marca:"POLYGON",
-        categoria:"BICICLETAS",
+        categoria:"bicicletas",
         detalle:"Diseñada para andar en las condiciones más exigentes.",
         detallexl:"Polygon Siskiu serie N es una bicicleta para enduro de aluminio con full suspensión. Posee una combinación de partes y tecnología diseñada para ser manejada, en las condiciones más demandantes. Una bicicleta agresiva, rápida, para un ciclista, que busca vencer sus limitaciones personales.",
+        oferta: false,
         precio:3399,
         color:"CHAMELEON",
         size:`27.5" M`,
@@ -18,9 +20,10 @@ const productosIniciales = [
         id:2,
         titulo:"SISKIU T7",
         marca:"POLYGON",
-        categoria:"BICICLETAS",
+        categoria:"bicicletas",
         detalle:"Lista para el camino, una máquina eficiente para viajes épicos!",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: false,
         precio:2149,
         color:"BLUE GREEN",
         size:`27.5" M`,
@@ -30,9 +33,10 @@ const productosIniciales = [
         id:3,
         titulo:"BROMO N8",
         marca:"POLYGON",
-        categoria:"BICICLETAS",
+        categoria:"bicicletas",
         detalle:"Una e-bike full suspension, construida con tecnología IFS para llevarta mas allá!",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: false,
         precio:6199,
         color:"WHITE BLACK",
         size:`29" L`,
@@ -42,9 +46,10 @@ const productosIniciales = [
         id:4,
         titulo:"SUPER AIR SPHERICAL",
         marca:"BELL",
-        categoria:"ACCESORIOS",
+        categoria:"accesorios",
         detalle:"Un casco con ventilación optimizada, liviano, tecnología Spherical y MIPS.",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: true,
         precio:259,
         color:"FASTHOUSE MATTE RED/BLACK",
         size:`L`,
@@ -54,9 +59,10 @@ const productosIniciales = [
         id:5,
         titulo:"SUPER DH SPHERICAL",
         marca:"BELL",
-        categoria:"ACCESORIOS",
+        categoria:"accesorios",
         detalle:"Casco full-face con tecnología Spherical y MIPS, el más vendido de Bell.",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: false,
         precio:350,
         color:"MATTE/GLOSS BLUE/HI-VIZ",
         size:`M`,
@@ -66,9 +72,10 @@ const productosIniciales = [
         id:6,
         titulo:"CAMISA BELL + DIXXON",
         marca:"BELL",
-        categoria:"INDUMENTARIA",
+        categoria:"indumentaria",
         detalle:"Camisa de trabajo de alta calidad y liviana.",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: true,
         precio:90,
         color:"NEGRO",
         size:`L`,
@@ -78,9 +85,10 @@ const productosIniciales = [
         id:7,
         titulo:"ROMPEVIENTO BELL",
         marca:"BELL",
-        categoria:"INDUMENTARIA",
+        categoria:"indumentaria",
         detalle:"Rompeviento con capucha liviano, listo para soportar las condiciones adversas.",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: true,
         precio:125,
         color:"NEGRO CAMUFLADO",
         size:`L`,
@@ -90,9 +98,10 @@ const productosIniciales = [
         id:8,
         titulo:"CAMBIO XTR RD-M9100-GS 12 VELOCIDADES",
         marca:"SHIMANO",
-        categoria:"COMPONENTES",
+        categoria:"componentes",
         detalle:"Pata de cambios, caja mediana de 12 velocidades.",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: false,
         precio:302,
         color:"NEGRO",
         size:``,
@@ -102,9 +111,10 @@ const productosIniciales = [
         id:9,
         titulo:"PEDALES DEORE XT PD-M8040",
         marca:"SHIMANO",
-        categoria:"COMPONENTES",
+        categoria:"componentes",
         detalle:"Pedales de plataforma de mayor agarre y comodidad en recorridos largos.",
         detallexl:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis optio harum pariatur aut, quidem asperiores iure aliquid doloribus omnis expedita eos quibusdam at dolorem molestiae ducimus commodi molestias, ullam ipsa.",
+        oferta: false,
         precio:110,
         color:"NEGRO",
         size:`SM`,
@@ -115,20 +125,48 @@ const productosIniciales = [
 const ItemListContainer = ({greeting}) => {
     const [cargando, setCargando] = useState(true)
     const [productos, setProductos] = useState([])
+    const {categoriaId} = useParams()
 
     useEffect(()=>{
-        const pedido = new Promise ((res)=>{
-            setTimeout(() => {
-                res(productosIniciales)
-            }, 500);
-        })
-        pedido
-        .then(()=>{
-            setCargando(false)
-            setProductos(productosIniciales)
-        })
+        if(categoriaId==undefined){
+            console.log("todos los produ")
+            const pedido = new Promise ((res)=>{
+                setTimeout(() => {
+                    res(productosIniciales)
+                }, 500);
+            })
+            pedido
+            .then(()=>{
+                setCargando(false)
+                setProductos(productosIniciales)
+            })
+        }else if (categoriaId=="ofertas"){
+            console.log("esto tiene: ",categoriaId)
+            const pedido = new Promise ((res)=>{
+                setTimeout(() => {
+                    res(productosIniciales.filter(x=>x.oferta==true))
+                }, 500);
+            })
+            pedido
+            .then(()=>{
+                setCargando(false)
+                setProductos(productosIniciales.filter(x=>x.oferta==true))
+            })
+        }else{
+            console.log("esto es: ",categoriaId)
+            const pedido = new Promise ((res)=>{
+                setTimeout(() => {
+                    res(productosIniciales.filter(x=>x.categoria==categoriaId))
+                }, 500);
+            })
+            pedido
+            .then(()=>{
+                setCargando(false)
+                setProductos(productosIniciales.filter(x=>x.categoria==categoriaId))
+            })
+        }
     }, 
-    [])
+    [categoriaId])
     
     return(
         cargando ? 

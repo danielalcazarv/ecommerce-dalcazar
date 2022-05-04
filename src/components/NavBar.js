@@ -1,6 +1,7 @@
+import { Link, NavLink} from "react-router-dom";
+import { Button } from "bootstrap";
 import logo from "../img/wheelie.png";
 import CartWidget from "./CartWidget";
-import { Link, NavLink} from "react-router-dom";
 
 const NavBar = () => {
     return (
@@ -19,19 +20,19 @@ const NavBar = () => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li className="nav-item">
-                                <NavLink className="nav-link" aria-current="page" to="/bicicletas">Bicicletas</NavLink>
+                                <NavLink className="nav-link" aria-current="page" to="/categoria/bicicletas">Bicicletas</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/componentes">Componentes</NavLink>
+                                <NavLink className="nav-link" to="/categoria/componentes">Componentes</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="accesorios">Accesorios</NavLink>
+                                <NavLink className="nav-link" to="/categoria/accesorios">Accesorios</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="indumentaria">Indumentaria</NavLink>
+                                <NavLink className="nav-link" to="/categoria/indumentaria">Indumentaria</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="ofertas">OFERTAS</NavLink>
+                                <NavLink className="nav-link" to="/categoria/ofertas">OFERTAS</NavLink>
                             </li>
                         </ul>
                         <form className="d-flex">
