@@ -15,8 +15,8 @@ const ItemDetailContainer = () => {
             }, 500);
         })
         pedido
-        .then(()=>{
-            const resultado = productosIniciales.filter((producto)=>{
+        .then((res)=>{
+            const resultado = res.filter((producto)=>{
                 return producto.id == id
             })[0]
             setProductos(resultado)

@@ -11,40 +11,37 @@ const ItemListContainer = ({greeting}) => {
 
     useEffect(()=>{
         if(categoriaId===undefined){
-            console.log("todos los produ")
             const pedido = new Promise ((res)=>{
                 setTimeout(() => {
                     res(productosIniciales)
                 }, 500);
             })
             pedido
-            .then(()=>{
+            .then((res)=>{
                 setCargando(false)
-                setProductos(productosIniciales)
+                setProductos(res)
             })
         }else if (categoriaId=="ofertas"){
-            console.log("esto tiene: ",categoriaId)
             const pedido = new Promise ((res)=>{
                 setTimeout(() => {
                     res(productosIniciales.filter(x=>x.oferta===true))
                 }, 500);
             })
             pedido
-            .then(()=>{
+            .then((res)=>{
                 setCargando(false)
-                setProductos(productosIniciales.filter(x=>x.oferta===true))
+                setProductos(res)
             })
         }else{
-            console.log("esto es: ",categoriaId)
             const pedido = new Promise ((res)=>{
                 setTimeout(() => {
                     res(productosIniciales.filter(x=>x.categoria==categoriaId))
                 }, 500);
             })
             pedido
-            .then(()=>{
+            .then((res)=>{
                 setCargando(false)
-                setProductos(productosIniciales.filter(x=>x.categoria==categoriaId))
+                setProductos(res)
             })
         }
     }, 

@@ -1,7 +1,14 @@
+import { useState } from "react"
+import { Link } from "react-router-dom"
 import ItemCount from "./ItemCount"
 
 const ItemDetail = ({productos}) => {
-    const onAdd = ()=>{}
+    const [cartItems , setCartItems] = useState(0)
+    
+    const onAdd = (quantityToAdd)=>{
+        setCartItems(quantityToAdd)
+    }
+
     return (
         <article>
             <div className="card mb-3 border-0">
@@ -15,8 +22,11 @@ const ItemDetail = ({productos}) => {
                             <p className="card-text text-center">Precio: USD ${productos.precio}</p>
                             <p className="card-text text-center">Color: {productos.color}</p>
                             <p className="card-text text-center">Tamaño: {productos.size}</p>
-                            <ItemCount stock={5} init={1} onAdd={onAdd}/>
-                            
+                            <div className="container count__custom">
+                                <ItemCount stock={5} init={1} onAdd={onAdd}/>
+                                {cartItems > 0 ? <Link className="text-center" to="/cart"><button className="btn btn-success m-2 item__button">Finalizar Compra</button></Link> 
+                                    : <></>}
+                            </div>
                         </div>
                     </div>
                 </div>

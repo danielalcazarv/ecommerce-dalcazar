@@ -28,7 +28,6 @@ const ItemCount = ( {init,stock,onAdd} ) => {
         }
     }
     const confirmar = () =>{
-        console.log(contador)
         onAdd(contador)
         Swal.fire({
             icon: 'success',
@@ -36,7 +35,7 @@ const ItemCount = ( {init,stock,onAdd} ) => {
         })
     }
     return (
-    <div className="container count__custom">
+    <>
         <div className="d-flex flex-wrap justify-content-evenly py-2">
         <button onClick={restar} className="btn btn-success p-0 mx-2">
             <span className="material-icons">
@@ -50,8 +49,8 @@ const ItemCount = ( {init,stock,onAdd} ) => {
             </span>
         </button>
         </div>
-        <button onClick={confirmar} className="btn btn-success m-2">Agregar al Carrito</button>
-    </div>
+        <button onClick={confirmar} className="btn btn-success m-2 item__button">Agregar al Carrito</button>
+    </>
     )
 }
 
