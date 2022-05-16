@@ -43,9 +43,7 @@ const NavBar = () => {
                         </form>
                         </div>
                         <div className="container nav__cart m-2 p-0">
-                            <Link to="/cart">
-                                <CartWidget/>
-                            </Link>
+                            <CartWidget/>
                         </div>
                     </div>
                 </nav>

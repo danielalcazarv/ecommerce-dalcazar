@@ -4,28 +4,23 @@ import Swal from "sweetalert2"
 const ItemCount = ( {init,stock,onAdd} ) => {
     const [contador, setContador] = useState(init)
     const sumar = () => {
-        if(contador<stock){
-            setContador(contador+1)
-        }else{
+        contador<stock ? setContador(contador+1):
             Swal.fire({
                 icon: 'warning',
                 title: 'Cantidad Máxima Seleccionada',
                 showConfirmButton: false,
                 timer: 1200
             })
-        }
     }
     const restar = () => {
-        if (contador<2){
+        contador<2 ?
             Swal.fire({
                 icon: 'error',
                 title: 'Cantidad mínima 1 unidad',
                 showConfirmButton: false,
                 timer: 1200
-            })
-        }else{
+            }):
             setContador(contador-1)
-        }
     }
     const confirmar = () =>{
         onAdd(contador)

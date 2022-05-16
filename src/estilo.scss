@@ -79,6 +79,10 @@ footer ul li .footer__link {
     width: 100%;
 }
 
+.cart__img{
+    width: 80px;
+}
+
 .text__highlight{
     background-color:#242582 ;
     color: #f64672;
@@ -121,6 +125,10 @@ footer ul li .footer__link {
         border-color: #5200dd;
         box-shadow: #5200dd;
     }
+}
+
+.bg-success{
+    background-color: #5200dd !important;
 }
 
 .text-success{
