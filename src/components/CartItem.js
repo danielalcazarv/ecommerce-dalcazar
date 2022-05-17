@@ -8,9 +8,17 @@ const CartItem = ({ cart, removeItem }) => {
     }
 
     return (
-        <tr className="text-center">
-            <th scope="row"><img src={cart.item.img} className="img-fluid rounded-start cart__img" alt={cart.item.titulo}/></th>
-            <td><Link className="text-decoration-none text-muted" to={`/item/${cart.item.id}`}>{cart.item.titulo}</Link></td>
+        <tr className="text-center align-middle">
+            <th scope="row">
+                <Link className="text-decoration-none text-muted" to={`/item/${cart.item.id}`}>
+                    <img src={cart.item.img} className="img-fluid rounded-start cart__img" alt={cart.item.titulo}/>
+                </Link>
+            </th>
+            <td>
+                <Link className="text-decoration-none text-muted" to={`/item/${cart.item.id}`}>
+                    {cart.item.titulo}
+                </Link>
+            </td>
             <td>{`USD $ `+cart.item.precio}</td>
             <td>{cart.quantity}</td>
             <td>{`USD $ `+multi}</td>

@@ -44,6 +44,7 @@ const ItemCount = ( {init,stock,onAdd} ) => {
             </span>
         </button>
         </div>
+        <p className="text-center text-muted">{stock===1?`Queda sola `+stock+` unidad` : `Quedan `+stock+` unidades`}</p>
         <button onClick={confirmar} className="btn btn-success m-2 item__button">Agregar al Carrito</button>
     </>
     )

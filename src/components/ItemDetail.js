@@ -17,7 +17,7 @@ const ItemDetail = ({productos}) => {
             <div className="card mb-3 border-0">
                 <div className="row g-0">
                     <div className="col-md-6">
-                    <img src={productos.img} className="img-fluid rounded-start" alt={productos.titulo}/>
+                        <img src={productos.img} className="img-fluid rounded-start" alt={productos.titulo}/>
                     </div>
                     <div className="col-md-6 border">
                         <div className="card-body">
@@ -26,7 +26,7 @@ const ItemDetail = ({productos}) => {
                             <p className="card-text text-center">Color: {productos.color}</p>
                             <p className="card-text text-center">Tamaño: {productos.size}</p>
                             <div className="container count__custom">
-                                <ItemCount stock={5} init={1} onAdd={onAdd}/>
+                                <ItemCount stock={productos.stock} init={1} onAdd={onAdd}/>
                                 {cartItems > 0 ? <Link className="text-center" to="/cart"><button className="btn btn-success m-2 item__button">Finalizar Compra</button></Link> 
                                     : <></>}
                             </div>

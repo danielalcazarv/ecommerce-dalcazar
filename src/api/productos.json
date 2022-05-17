@@ -10,7 +10,8 @@
         "precio":3399,
         "color":"CHAMELEON",
         "size":"27.5 M",
-        "img":"https://www.polygonbikes.com/wp-content/uploads/2020/05/MY21-SISKIU-N9-CHAMELEON-FIX-SPEC-2.png"
+        "img":"https://www.polygonbikes.com/wp-content/uploads/2020/05/MY21-SISKIU-N9-CHAMELEON-FIX-SPEC-2.png",
+        "stock":4
     },
     {
         "id":2,
@@ -23,7 +24,8 @@
         "precio":2149,
         "color":"BLUE GREEN",
         "size":"27.5 M",
-        "img":"https://www.polygonbikes.com/wp-content/uploads/2020/08/MY20-SISKIU-T7-TA2-2.png"
+        "img":"https://www.polygonbikes.com/wp-content/uploads/2020/08/MY20-SISKIU-T7-TA2-2.png",
+        "stock":1
     },
     {
         "id":3,
@@ -36,7 +38,8 @@
         "precio":6199,
         "color":"WHITE BLACK",
         "size":"29 L",
-        "img":"https://www.polygonbikes.com/wp-content/uploads/2021/03/MY21-MT-BROMO-N8-P-1.png"
+        "img":"https://www.polygonbikes.com/wp-content/uploads/2021/03/MY21-MT-BROMO-N8-P-1.png",
+        "stock":3
     },
     {
         "id":4,
@@ -49,7 +52,8 @@
         "precio":259,
         "color":"FASTHOUSE MATTE RED/BLACK",
         "size":"L",
-        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dwbadc97f6/images/large/bell-super-air-spherical-mountain-bike-helmet-fasthouse-matte-red-black-right.jpg"
+        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dwbadc97f6/images/large/bell-super-air-spherical-mountain-bike-helmet-fasthouse-matte-red-black-right.jpg",
+        "stock":8
     },
     {
         "id":5,
@@ -62,7 +66,8 @@
         "precio":350,
         "color":"MATTE/GLOSS BLUE/HI-VIZ",
         "size":"M",
-        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dw15aaafe9/images/large/bell-super-dh-spherical-mountain-bike-helmet-fasthouse-matte-gloss-blue-hi-viz-right.jpg"
+        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dw15aaafe9/images/large/bell-super-dh-spherical-mountain-bike-helmet-fasthouse-matte-gloss-blue-hi-viz-right.jpg",
+        "stock":5
     },
     {
         "id":6,
@@ -75,7 +80,8 @@
         "precio":90,
         "color":"NEGRO",
         "size":"L",
-        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dw4103eb8f/images/large/bell-helmets-apparel-dixxon-mens-short-sleeve-workshirt-black-front.jpg"
+        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dw4103eb8f/images/large/bell-helmets-apparel-dixxon-mens-short-sleeve-workshirt-black-front.jpg",
+        "stock":12
     },
     {
         "id":7,
@@ -88,7 +94,8 @@
         "precio":125,
         "color":"NEGRO CAMUFLADO",
         "size":"L",
-        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dw5785f89b/images/large/bell-hooded-windbreaker-apparel-core-black-camo-front.jpg"
+        "img":"https://www.bellhelmets.com/dw/image/v2/BDBJ_PRD/on/demandware.static/-/Sites-bell-master-catalog/default/dw5785f89b/images/large/bell-hooded-windbreaker-apparel-core-black-camo-front.jpg",
+        "stock":12
     },
     {
         "id":8,
@@ -101,7 +108,8 @@
         "precio":302,
         "color":"NEGRO",
         "size":"",
-        "img":"https://dassets.shimano.com/content/dam/global/cg1SHICCycling/final/products/cg2SHICComponent/cg3SHICRearDerailleur/cg4SHICRearDerailleur/P-RD-M9100-GS_BC19Nd0167.jpg/jcr:content/renditions/P-RD-M9100-GS_BC19Nd0167_750_750.jpeg"
+        "img":"https://dassets.shimano.com/content/dam/global/cg1SHICCycling/final/products/cg2SHICComponent/cg3SHICRearDerailleur/cg4SHICRearDerailleur/P-RD-M9100-GS_BC19Nd0167.jpg/jcr:content/renditions/P-RD-M9100-GS_BC19Nd0167_750_750.jpeg",
+        "stock":5
     },
     {
         "id":9,
@@ -114,6 +122,7 @@
         "precio":110,
         "color":"NEGRO",
         "size":"SM",
-        "img":"https://dassets.shimano.com/content/dam/global/cg1SHICCycling/final/products/cg2SHICComponent/cg3SHICPedal/cg4SHICPedalSPD/P-PD-M8040_17114_1.jpg/jcr:content/renditions/P-PD-M8040_17114_1_750_750.jpeg"
+        "img":"https://dassets.shimano.com/content/dam/global/cg1SHICCycling/final/products/cg2SHICComponent/cg3SHICPedal/cg4SHICPedalSPD/P-PD-M8040_17114_1.jpg/jcr:content/renditions/P-PD-M8040_17114_1_750_750.jpeg",
+        "stock":6
     }
 ]
