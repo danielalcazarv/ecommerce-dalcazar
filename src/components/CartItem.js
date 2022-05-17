@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Link } from "react-router-dom";
 
 const CartItem = ({ cart, removeItem }) => {
     const multi = (cart.item.precio*cart.quantity)
@@ -7,9 +8,9 @@ const CartItem = ({ cart, removeItem }) => {
     }
 
     return (
-        <tr>
+        <tr className="text-center">
             <th scope="row"><img src={cart.item.img} className="img-fluid rounded-start cart__img" alt={cart.item.titulo}/></th>
-            <td>{cart.item.titulo}</td>
+            <td><Link className="text-decoration-none text-muted" to={`/item/${cart.item.id}`}>{cart.item.titulo}</Link></td>
             <td>{`USD $ `+cart.item.precio}</td>
             <td>{cart.quantity}</td>
             <td>{`USD $ `+multi}</td>

@@ -4,7 +4,7 @@ const CartList = ({ cart, removeItem, cantidadTotal, precioTotal }) => {
     return (
         <table className=" table table-default">
             <thead>
-                <tr>
+                <tr className="text-center">
                     <th scope="col"></th>
                     <th scope="col">PRODUCTO</th>
                     <th scope="col">PRECIO UNIT.</th>
@@ -17,8 +17,8 @@ const CartList = ({ cart, removeItem, cantidadTotal, precioTotal }) => {
                 {cart.map(cart=>{
                     return <CartItem key={cart.item.id} cart={cart} removeItem={removeItem} />
                     })}
-                <tr className="table-active">
-                    <th scope="row" colSpan="3">TOTALES</th>
+                <tr className="table-active text-center">
+                    <th scope="row" colSpan="3">TOTAL FINAL</th>
                     <td>{cantidadTotal}</td>
                     <td>{`USD $ `+precioTotal}</td>
                 </tr>
