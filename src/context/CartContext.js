@@ -23,11 +23,11 @@ export const CustomProvider = ({ defaultValue = [], children}) =>{
                 }
             }
             setCantidadTotal(cantidadTotal+quantity)
-            setPrecioTotal(precioTotal+item.precio)
+            setPrecioTotal(precioTotal+item.precio*quantity)
             setCart(newCart)
         }else{
             setCantidadTotal(cantidadTotal+quantity)
-            setPrecioTotal(precioTotal+item.precio)
+            setPrecioTotal(precioTotal+item.precio*quantity)
             setCart([
                 ...cart,
                 {
@@ -38,9 +38,11 @@ export const CustomProvider = ({ defaultValue = [], children}) =>{
         }
     }
 
-    const removeItem = (id) =>{
+    const removeItem = (id, cantidad, precio) =>{
         const newCart = [...cart].filter((element) => element.item.id !== id);
         setCart(newCart);
+        setCantidadTotal(cantidadTotal-cantidad);
+        setPrecioTotal(precioTotal-precio);
     }
 
     const clearItem = () =>{

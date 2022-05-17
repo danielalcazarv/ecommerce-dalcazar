@@ -21,7 +21,7 @@ const Cart = () => {
         <div className="container">
             <h4>Mi Carrito</h4>
             <div className="container row justify-content-center align-items-center">
-                {cantidadTotal==0 ?
+                {cantidadTotal === 0 ?
                     <>
                     <p className="text-center">Su carrito esta vacío.</p> 
                     <Link className="col-auto" to="/">
