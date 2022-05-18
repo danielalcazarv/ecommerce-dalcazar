@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBJZOI0N4MzzKl7yInlmFEQTF7Ou21QngY",
-    authDomain: "ecommerce-wheelies.firebaseapp.com",
-    projectId: "ecommerce-wheelies",
-    storageBucket: "ecommerce-wheelies.appspot.com",
-    messagingSenderId: "916546639130",
-    appId: "1:916546639130:web:c42451a6a336cba6cac8a3"
+    apiKey: "AIzaSyAev3wOW6uqL6nR1clFssJB6IJFpAFdmRs",
+    authDomain: "ecommerce-wheelies2.firebaseapp.com",
+    projectId: "ecommerce-wheelies2",
+    storageBucket: "ecommerce-wheelies2.appspot.com",
+    messagingSenderId: "705591868006",
+    appId: "1:705591868006:web:fa5013a19b063ae68fcba7"
 };
 
 const app = initializeApp(firebaseConfig);
