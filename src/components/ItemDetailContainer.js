@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
-import productosIniciales from "../api/productos.json"
+import { db } from "../api/firebase"
+import { collection, getDocs } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
     const [cargando, setCargando] = useState(true)
@@ -9,18 +10,26 @@ const ItemDetailContainer = () => {
     const {id} = useParams()
 
     useEffect(()=>{
-        const pedido = new Promise ((res)=>{
-            setTimeout(() => {
-                res(productosIniciales)
-            }, 500);
-        })
-        pedido
-        .then((res)=>{
-            const resultado = res.filter((producto)=>{
-                return producto.id == id
+        const productosCollection = collection(db,"productos")
+        const consulta = getDocs(productosCollection)
+        consulta
+        .then((resultado)=>{
+            const productos =  resultado.docs.map(doc=>{
+                const productosConId = {
+                    ...doc.data(),
+                    id: doc.id
+                }
+                return productosConId
+            })
+            const productoDetail = productos.filter((productos)=>{
+                return productos.id==id
             })[0]
-            setProductos(resultado)
+            setProductos(productoDetail)
             setCargando(false)
+        })
+        .catch((error)=>{
+        })
+        .finally(()=>{
         })
     })
 

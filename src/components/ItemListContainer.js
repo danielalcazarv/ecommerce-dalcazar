@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
-import productosIniciales from "../api/productos.json"
-
+import { db } from "../api/firebase"
+import { collection, getDocs } from "firebase/firestore"
 
 const ItemListContainer = ({greeting}) => {
     const [cargando, setCargando] = useState(true)
@@ -10,38 +10,58 @@ const ItemListContainer = ({greeting}) => {
     const {categoriaId} = useParams()
 
     useEffect(()=>{
+        const productosCollection = collection(db,"productos")
+        const consulta = getDocs(productosCollection)
         if(categoriaId===undefined){
-            const pedido = new Promise ((res)=>{
-                setTimeout(() => {
-                    res(productosIniciales)
-                }, 500);
-            })
-            pedido
-            .then((res)=>{
+            consulta
+            .then((resultado)=>{
+                const productos =  resultado.docs.map(doc=>{
+                    const productosConId = {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+                    return productosConId
+                })
+                setProductos(productos)
                 setCargando(false)
-                setProductos(res)
+            })
+            .catch((error)=>{
+            })
+            .finally(()=>{
             })
         }else if (categoriaId=="ofertas"){
-            const pedido = new Promise ((res)=>{
-                setTimeout(() => {
-                    res(productosIniciales.filter(x=>x.oferta===true))
-                }, 500);
-            })
-            pedido
-            .then((res)=>{
+            consulta
+            .then((resultado)=>{
+                const productos =  resultado.docs.map(doc=>{
+                    const productosConId = {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+                    return productosConId
+                })
+                setProductos(productos.filter(x=>x.oferta===true))
                 setCargando(false)
-                setProductos(res)
+            })
+            .catch((error)=>{
+            })
+            .finally(()=>{
             })
         }else{
-            const pedido = new Promise ((res)=>{
-                setTimeout(() => {
-                    res(productosIniciales.filter(x=>x.categoria==categoriaId))
-                }, 500);
-            })
-            pedido
-            .then((res)=>{
+            consulta
+            .then((resultado)=>{
+                const productos =  resultado.docs.map(doc=>{
+                    const productosConId = {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+                    return productosConId
+                })
+                setProductos(productos.filter(x=>x.categoria==categoriaId))
                 setCargando(false)
-                setProductos(res)
+            })
+            .catch((error)=>{
+            })
+            .finally(()=>{
             })
         }
     }, 
