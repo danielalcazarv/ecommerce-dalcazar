@@ -1,6 +1,5 @@
 import Items from "./Items"
 
-
 const ItemList = ({productos}) => {
     return(
         <section className="row">
