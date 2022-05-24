@@ -21,8 +21,8 @@ const Cart = () => {
     const guardarCompra = () =>{
         const ventasCollection = collection(db,"ventas")
         const desgloseItems = (arr) =>{
-            const nuevocart = arr.map(({item:{id,titulo,precio},quantity}) => ({item:{id,titulo,precio},quantity}));
-            return nuevocart;
+            const filtroKeys = arr.map(({item:{id,titulo,precio},quantity}) => ({item:{id,titulo,precio},quantity}));
+            return filtroKeys;
         }
         const venta = {
             buyer : {
