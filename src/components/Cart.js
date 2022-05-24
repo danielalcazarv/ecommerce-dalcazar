@@ -20,13 +20,17 @@ const Cart = () => {
     }
     const guardarCompra = () =>{
         const ventasCollection = collection(db,"ventas")
+        const desgloseItems = (arr) =>{
+            const nuevocart = arr.map(({item:{id,titulo,precio},quantity}) => ({item:{id,titulo,precio},quantity}));
+            return nuevocart;
+        }
         const venta = {
             buyer : {
                 name : "Pedro Perez",
                 phone : "5555-5555",
                 email : "test@test.com"
             },
-            items : cart,
+            items :desgloseItems(cart),
             date : new Date(),
             total : precioTotal
         }
