@@ -7,14 +7,14 @@ const LandingCarousel = () => {
                 <div className="carousel-item active">
                     <img src="https://www.polygonbikes.com/wp-content/uploads/2020/08/Web-Banner-Bend-R-Fix-PRO.jpg" className="d-block w-100" alt="banner-1"/>
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                     <img src="https://www.polygonbikes.com/wp-content/uploads/2021/04/bromo_wistia_vid_poster_min7.jpg" className="d-block w-100" alt="banner-2"/>
                     <div className="carousel-caption d-none d-md-block">
                         <h5>Recién Llegada!</h5>
                         <Link to={`/item/OydDqJTLR3qrRRDlkbdD`}><button className="btn btn-success">Conocer Más</button></Link>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                     <img src="https://www.polygonbikes.com/wp-content/uploads/2021/09/Strattos-BA-2.jpg" className="d-block w-100" alt="banner-3"/>
                 </div>
             </div>

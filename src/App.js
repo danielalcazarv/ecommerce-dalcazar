@@ -3,16 +3,19 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import { BrowserRouter } from "react-router-dom";
 import { CustomProvider } from "./context/CartContext";
+import { CustomUserProvider } from "./context/UserContext";
 
 const App = () => {
     return (
-        <CustomProvider>
-            <BrowserRouter>
-                <NavBar/>
-                <Main/>
-                <Footer/>
-            </BrowserRouter>
-        </CustomProvider>
+        <CustomUserProvider>
+            <CustomProvider>
+                <BrowserRouter>
+                    <NavBar/>
+                    <Main/>
+                    <Footer/>
+                </BrowserRouter>
+            </CustomProvider>
+        </CustomUserProvider>
     )
 };
 

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const AccountWidget = () => {
+const UserWidget = () => {
     return (
-        <Link to="/account" className="position-relative">
+        <Link to="/user" className="position-relative">
             <span className="material-icons" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mi Cuenta">
                 person
             </span>
@@ -10,4 +10,4 @@ const AccountWidget = () => {
     )
 }
 
-export default AccountWidget
+export default UserWidget

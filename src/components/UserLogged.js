@@ -1,6 +1,5 @@
-import React from 'react'
 
-const Account = () => {
+const UserLogged = () => {
     return (
         <div className="container mt-4">
             <h4>¡Hola   !</h4>
@@ -8,4 +7,4 @@ const Account = () => {
     )
 }
 
-export default Account
+export default UserLogged

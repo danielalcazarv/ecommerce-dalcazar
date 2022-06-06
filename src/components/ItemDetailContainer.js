@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
                 return productosConId
             })
             const productoDetail = productos.filter((productos)=>{
-                return productos.id==id
+                return productos.id===id
             })[0]
             setProductos(productoDetail)
             setCargando(false)
