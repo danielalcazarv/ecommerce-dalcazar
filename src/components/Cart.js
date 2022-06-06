@@ -51,7 +51,7 @@ const Cart = () => {
         })
     }
     return (
-        <div className="container">
+        <div className="container mt-4">
             <h4>Mi Carrito</h4>
             <div className="container row justify-content-center align-items-center">
                 {cantidadTotal === 0 ?

@@ -35,19 +35,15 @@ const ItemDetailContainer = () => {
 
     return (
         cargando ? 
-            (<div className="container">
-                <div className="container text-center">
-                    <p>Cargando detalle de producto...</p>
-                    <div className="spinner-border text-success" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
+            (<div className="container text-center mt-4">
+                <p>Cargando detalle de producto...</p>
+                <div className="spinner-border text-success" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </div>):
-            (<div className="container">
-                <section className="container">
-                    <ItemDetail productos={productos}/>
-                </section>
-            </div>)
+            (<section className="container mt-4">
+                <ItemDetail productos={productos}/>
+            </section>)
     )
 }
 

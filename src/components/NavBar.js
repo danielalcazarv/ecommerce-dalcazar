@@ -2,6 +2,7 @@ import { Link, NavLink} from "react-router-dom";
 import { Button } from "bootstrap";
 import logo from "../img/wheelie.png";
 import CartWidget from "./CartWidget";
+import AccountWidget from "./AccountWidget";
 
 const NavBar = () => {
     return (
@@ -18,32 +19,32 @@ const NavBar = () => {
                         <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li className="nav-item">
-                                <NavLink className="nav-link" aria-current="page" to="/categoria/bicicletas">Bicicletas</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/categoria/componentes">Componentes</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/categoria/accesorios">Accesorios</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/categoria/indumentaria">Indumentaria</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/categoria/ofertas">OFERTAS</NavLink>
-                            </li>
-                        </ul>
-                        <form className="d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                            <Link to="/search">
-                                <button className="btn btn-outline-success" type="submit">Ir</button>
-                            </Link>
-                        </form>
-                        </div>
-                        <div className="container nav__cart m-2 p-0">
+                            <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" aria-current="page" to="/categoria/bicicletas">Bicicletas</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/categoria/componentes">Componentes</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/categoria/accesorios">Accesorios</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/categoria/indumentaria">Indumentaria</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/categoria/ofertas">OFERTAS</NavLink>
+                                </li>
+                            </ul>
                             <CartWidget/>
+                            <AccountWidget/>
+                            <form className="d-flex">
+                                <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+                                <Link to="/search">
+                                    <button className="btn btn-outline-success" type="submit">Ir</button>
+                                </Link>
+                            </form>
+
                         </div>
                     </div>
                 </nav>

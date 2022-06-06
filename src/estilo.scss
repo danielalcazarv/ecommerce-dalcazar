@@ -18,7 +18,7 @@ html , body , #root {
 }
 
 #root > main , #root > footer {
-    padding-top: 1rem ;
+    //padding-top: 1rem ;
     padding-bottom: 1rem;
 }
 
@@ -33,10 +33,6 @@ html , body , #root {
     background-image: url(./img/wave.png);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.nav__cart{
-    max-width: 36px;
 }
 
 .count__custom{
@@ -109,8 +105,9 @@ footer ul li .footer__link {
 }
 
 .material-icons{
-    font-size: 36px;
+    font-size: 24px;
     color: #ffffff;
+    padding: 8px;
 }
 
 .btn-outline-success {

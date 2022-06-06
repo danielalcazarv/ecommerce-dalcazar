@@ -6,7 +6,7 @@ const CartWidget = () => {
     const {cantidadTotal} = useContext(CartContext)
     return (
         <Link to="/cart" className="position-relative">
-            <span className="material-icons">
+            <span className="material-icons" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver Carro">
                 shopping_cart
             </span>
             {cantidadTotal === 0 ?<span></span>:
