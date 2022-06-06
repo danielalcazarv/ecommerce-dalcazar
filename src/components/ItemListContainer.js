@@ -4,7 +4,7 @@ import ItemList from "./ItemList"
 import { db } from "../api/firebase"
 import { collection, getDocs } from "firebase/firestore"
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
     const [cargando, setCargando] = useState(true)
     const [productos, setProductos] = useState([])
     const {categoriaId} = useParams()
@@ -41,9 +41,6 @@ const ItemListContainer = ({greeting}) => {
     return(
         cargando ? 
             (<>
-                <p className="text-center text__highlight">
-                    {greeting}
-                </p>
                 <div className="container text-center">
                     <p>Cargando productos...</p>
                     <div className="spinner-border text-success" role="status">
@@ -52,9 +49,6 @@ const ItemListContainer = ({greeting}) => {
                 </div>
             </>):
             (<>
-                <p className="text-center text__highlight">
-                    {greeting}
-                </p>
                 <div className="container">
                     <ItemList productos={productos}/>
                 </div>

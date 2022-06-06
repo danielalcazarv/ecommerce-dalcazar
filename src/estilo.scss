@@ -18,7 +18,8 @@ html , body , #root {
 }
 
 #root > main , #root > footer {
-    padding: 1rem;
+    padding-top: 1rem ;
+    padding-bottom: 1rem;
 }
 
 #root > main {
@@ -47,7 +48,6 @@ html , body , #root {
     word-wrap: break-word;
     background-color: #ffffff;
     background-clip: border-box;
-    //border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
 
@@ -64,7 +64,23 @@ footer ul li .footer__link {
     color:#ffffff;
     font-weight: 500;
 }
+.landing-destacados__title{
+    font-size: 38px;
+    line-height: 46px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto 20px;
+    position: relative;
+}
 
+.landing-destacados__sub{
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    font-weight: 400;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 .item__card{
     width: 19rem;
 }
