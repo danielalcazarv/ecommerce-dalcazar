@@ -1,6 +1,7 @@
-import { useState, useContext } from "react"
+import { useState } from "react"
 import { useAuth } from "../context/UserContext"
 import { useNavigate } from "react-router-dom"
+import UserAlert from "./UserAlert";
 
 const UserRegister = () => {
 
@@ -8,37 +9,42 @@ const UserRegister = () => {
         email:"",
         password:"",
     })
-    const {signup, error, navigate} = useAuth()
-    const navigateTo = useNavigate()
+    const {signup} = useAuth()
+    const [errorF, setErrorF] = useState("");
+    const navigate = useNavigate()
 
     const handleChange = ({target: {name, value}}) =>{
         setUser({...user,[name]:value})
-        }
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        signup(user.email, user.password);
-        navigate && navigateTo('/cart')
     }
-/*
     const handleSubmit = async (e) =>{
         e.preventDefault()
         setErrorF("")
         try{
             await signup(user.email, user.password)
-            navigate('/')
-            //cantidadTotal === 0 ? navigate('/') : navigate(-1)
+            navigate('/cart')
         }catch(error){
-            setErrorF(error.message)
+            const errorCode = error.code;
+            switch (errorCode){
+                case "auth/invalid-email": setErrorF("Email inválido.");
+                break;
+                case "auth/weak-password": setErrorF("Contraseña inválida, no puede ser menor a 6 caracteres.");
+                break;
+                case "auth/email-already-in-use": setErrorF("Email ya en uso.");
+                break;
+                case "auth/missing-email" : setErrorF("Ingresar un email válido");
+                break;
+                case "auth/internal-error" : setErrorF("Ingresar una contraseña válida");
+                break;
+                default : setErrorF(error.code);
+            }
         }
-    }*/
-
+    }
 
     return (
         <div className="container mt-4">
             <h4>Registro</h4>
             <div className="container">
-                {error&&<p className="mx-auto text-center form-inicio-sesion text-danger">{error}</p>}
+                {errorF&&<UserAlert message={errorF}/>}
                 <form className="row g-3 form-inicio-sesion mx-auto mb-4" onSubmit={handleSubmit}>
                     {/*<div className="col-md-6">
                         <label htmlFor="nombre" className="form-label">Nombre</label>
@@ -73,7 +79,7 @@ const UserRegister = () => {
                         <input type="text" className="form-control" id="inputZip"/>
 </div>*/}
                     <div className="col-12">
-                        <button type="submit" className="btn btn-success">Registrarse</button>
+                        <button type="submit" className="btn btn-outline-dark">Registrarse</button>
                     </div>
                 </form>
             </div>

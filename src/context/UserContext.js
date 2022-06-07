@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createContext, useContext, useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../api/firebase";
 
 export const UserContext = createContext();
@@ -12,36 +12,27 @@ export const useAuth = () => {
 }
 
 export const CustomUserProvider = ({children}) =>{
-    const [error, setError] = useState("");
-    const [navigate, setNavigate] = useState(false);
+    const [user, setUser] = useState(null);
 
-    const signup = (email, password) =>{
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            setError("")
-            setNavigate(true);
-        }).catch((error) => {
-            const errorCode = error.code;
-            if (errorCode ==="auth/invalid-email"){
-                setError("Email inválido.")
-            }else if (errorCode==="auth/weak-password"){
-                setError("Contraseña inválida, no puede ser menor a 6 caracteres.")
-            }else if(errorCode==="auth/email-already-in-use"){
-                setError("Email ya en uso.")
-            }else{
-                setError("Error desconocido.")
-            }
-            
-        });
-        
+    const signup = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password);
     };
-    const login = (email, password) =>{
-        signInWithEmailAndPassword(auth,email,password)
-    }
+    const login = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    };
+    const logout = () => signOut(auth);
+    const googleLogin = () =>{
+        const googleProvider = new GoogleAuthProvider()
+        return signInWithPopup(auth, googleProvider)
+    };
+    useEffect(()=>{
+        onAuthStateChanged(auth, currentUser =>{
+            setUser(currentUser);
+        })
+    },[])
 
     return (
-        <Provider value={{ signup, login, error, navigate }}>
+        <Provider value={{ signup, login, user, logout, googleLogin }}>
             {children}
         </Provider>
     )

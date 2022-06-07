@@ -4,8 +4,10 @@ import ItemDetailContainer from "./ItemDetailContainer";
 import Cart from "./Cart";
 import Search from "./Search";
 import Landing from "./Landing";
-import UserContainer from "./UserContainer";
 import UserRegister from "./UserRegister";
+import UserLogin from "./UserLogin";
+import UserLogged from "./UserLogged"
+import { ProtectedRoute } from "./ProtectedRoute";
 
 const Main = () => {
   return (
@@ -16,8 +18,12 @@ const Main = () => {
         <Route path="/item/:id" element={<ItemDetailContainer/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/search" element={<Search/>}/>
-        <Route path="/user" element={<UserContainer/>}/>
-        <Route path="/registrarusuario" element={<UserRegister/>}/>
+        <Route path="/login" element={<UserLogin/>}/>
+        <Route path="/micuenta" element={
+          <ProtectedRoute>
+            <UserLogged/>
+          </ProtectedRoute>}/>
+        <Route path="/register" element={<UserRegister/>}/>
       </Routes>
     </main>
   )

@@ -3,6 +3,7 @@ import { Button } from "bootstrap";
 import logo from "../img/wheelie.png";
 import CartWidget from "./CartWidget";
 import UserWidget from "./UserWidget";
+import UserLogoutWidget from "./UserLogoutWidget";
 
 const NavBar = () => {
     return (
@@ -38,6 +39,7 @@ const NavBar = () => {
                             </ul>
                             <CartWidget/>
                             <UserWidget/>
+                            <UserLogoutWidget/>
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
                                 <Link to="/search">

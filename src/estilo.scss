@@ -127,6 +127,17 @@ footer ul li .footer__link {
     }
 }
 
+.btn-outline-dark{
+    border-color: #5200dd;
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus{
+        background-color: #5200dd;
+        border-color: #5200dd;
+    }
+}
+
 .btn-success{
     background-color: #F55353;
     border-color: #5200dd;
