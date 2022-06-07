@@ -115,6 +115,10 @@ footer ul li .footer__link {
     padding: 8px;
 }
 
+.form-control {
+    border: 1px solid #5200dd;
+}
+
 .btn-outline-success {
     color: #ffffff;
     border-color: #5200dd;
@@ -134,6 +138,20 @@ footer ul li .footer__link {
     &:visited,
     &:focus{
         background-color: #5200dd;
+        border-color: #5200dd;
+    }
+}
+
+.btn-outline-dark-2{
+    color: #ffffff;
+    background-color: #5200dd;
+    border-color: #5200dd;
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus{
+        color: #ffffff;
+        background-color: #F55353;
         border-color: #5200dd;
     }
 }

@@ -10,7 +10,7 @@ const UserLogin = () => {
         email:"",
         password:"",
     })
-    const {login, googleLogin} = useAuth()
+    const {login, googleLogin, resetPassword} = useAuth()
     const [errorF, setErrorF] = useState("");
     const navigate = useNavigate()
 
@@ -59,6 +59,21 @@ const UserLogin = () => {
             }
         }
     }
+    const handleResetPassword = async (e) => {
+        e.preventDefault();
+        if (!user.email) return setErrorF("Ingresa un email para cambiar contraseña.");
+        try {
+            await resetPassword(user.email);
+            setErrorF("Revisa tu email para cambiar contraseña.")
+        }catch (error) {
+            const errorCode = error.code;
+            switch (errorCode){
+                case "auth/user-not-found": setErrorF("Usuario no encontrado.");
+                break;
+                default : setErrorF(error.code);
+            }
+        }
+    };
 
     return (
         <div className="container mt-4">
@@ -74,15 +89,22 @@ const UserLogin = () => {
                         <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                         <input onChange={handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1"/>
                     </div>
-                    <div className="text-center">
-                        <button  type="submit" className="btn btn-outline-dark">Ingresar</button>
+                    <div className="row">
+                        <div className="col-6">
+                            <button  type="submit" className="btn btn-outline-dark-2 w-100">Ingresar</button>
+                        </div>
+                        <div className="col-6">
+                            <button onClick={handleResetPassword} className="btn btn-outline-dark border-0 w-100">Olvidaste la contraseña?</button>
+                        </div>
                     </div>
                 </form>
                 <div className="row">
-                    <Link className="text-decoration-none col" to="/register">
-                        <button className="btn btn-outline-dark">¿No tienes cuenta? Registrate Ahora</button>
+                    <Link className="text-decoration-none col-6" to="/register">
+                        <button className="btn btn-outline-dark border-0 w-100">¿No tienes cuenta?<br/>Registrate Ahora</button>
                     </Link>
-                    <button onClick={handleGoogleSignin} className="btn btn-outline-dark col"><FcGoogle/> Ingresar con Google</button>
+                    <div className="col-6">
+                        <button onClick={handleGoogleSignin} className="btn btn-outline-dark w-100 h-100"><FcGoogle/> Ingresar con Google</button>
+                    </div>
                 </div>
             </div>
         </div>

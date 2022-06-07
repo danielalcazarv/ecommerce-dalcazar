@@ -43,9 +43,9 @@ const UserRegister = () => {
     return (
         <div className="container mt-4">
             <h4>Registro</h4>
-            <div className="container">
+            <div className="container form-inicio-sesion">
                 {errorF&&<UserAlert message={errorF}/>}
-                <form className="row g-3 form-inicio-sesion mx-auto mb-4" onSubmit={handleSubmit}>
+                <form className="row g-3 mx-auto mb-4" onSubmit={handleSubmit}>
                     {/*<div className="col-md-6">
                         <label htmlFor="nombre" className="form-label">Nombre</label>
                         <input type="text" className="form-control" placeholder="Nombre/s" aria-label="First name" id="nombre"/>
@@ -79,7 +79,7 @@ const UserRegister = () => {
                         <input type="text" className="form-control" id="inputZip"/>
 </div>*/}
                     <div className="col-12">
-                        <button type="submit" className="btn btn-outline-dark">Registrarse</button>
+                        <button type="submit" className="btn btn-outline-dark-2">Registrarse</button>
                     </div>
                 </form>
             </div>
