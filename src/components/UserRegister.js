@@ -4,24 +4,22 @@ import { useNavigate } from "react-router-dom"
 import UserAlert from "./UserAlert";
 
 const UserRegister = () => {
-
-    const [user, setUser] = useState ({
+    const [newUser, setNewUser] = useState ({
         email:"",
         password:"",
     })
     const {signup} = useAuth()
     const [errorF, setErrorF] = useState("");
     const navigate = useNavigate()
-
     const handleChange = ({target: {name, value}}) =>{
-        setUser({...user,[name]:value})
+        setNewUser({...newUser,[name]:value})
     }
     const handleSubmit = async (e) =>{
         e.preventDefault()
         setErrorF("")
         try{
-            await signup(user.email, user.password)
-            navigate('/cart')
+            await signup(newUser.email, newUser.password)
+            navigate('/register/data')
         }catch(error){
             const errorCode = error.code;
             switch (errorCode){
@@ -46,38 +44,14 @@ const UserRegister = () => {
             <div className="container form-inicio-sesion">
                 {errorF&&<UserAlert message={errorF}/>}
                 <form className="row g-3 mx-auto mb-4" onSubmit={handleSubmit}>
-                    {/*<div className="col-md-6">
-                        <label htmlFor="nombre" className="form-label">Nombre</label>
-                        <input type="text" className="form-control" placeholder="Nombre/s" aria-label="First name" id="nombre"/>
-                    </div>
-                    <div className="col-md-6">
-                        <label htmlFor="apellido" className="form-label">Apellidos</label>
-                        <input type="text" className="form-control" placeholder="Apellido/s" aria-label="Last name" id="apellido"/>
-    </div>*/}       
-                    <div className="col-md-6">
+                <div className="col-md-6">
                         <label htmlFor="inputEmail4" className="form-label">Correo Electrónico</label>
-                        <input onChange={handleChange} name="email" type="text" className="form-control" id="inputEmail4"/>
+                        <input onChange={handleChange} name="email" type="text"  placeholder="ejemplo@email.com" className="form-control" id="inputEmail4"/>
                     </div>
                     <div className="col-md-6">
                         <label htmlFor="inputPassword4" className="form-label">Contraseña</label>
                         <input onChange={handleChange} name="password" type="password" className="form-control" id="inputPassword4"/>
                     </div>
-                    {/*<div className="col-12">
-                        <label htmlFor="inputAddress" className="form-label">Dirección</label>
-                        <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="inputAddress2" className="form-label">Dirección 2</label>
-                        <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
-                    </div>
-                    <div className="col-md-6">
-                        <label htmlFor="inputCity" className="form-label">Provincia</label>
-                        <input type="text" className="form-control" id="inputCity"/>
-                    </div>
-                    <div className="col-md-6">
-                        <label htmlFor="inputZip" className="form-label">Código Postal</label>
-                        <input type="text" className="form-control" id="inputZip"/>
-</div>*/}
                     <div className="col-12">
                         <button type="submit" className="btn btn-outline-dark-2">Registrarse</button>
                     </div>

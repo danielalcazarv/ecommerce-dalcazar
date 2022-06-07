@@ -1,13 +1,15 @@
 import {Routes, Route} from "react-router-dom";
+import { ProtectedRoute } from "./ProtectedRoute";
 import ItemListContainer from "./ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer";
 import Cart from "./Cart";
 import Search from "./Search";
 import Landing from "./Landing";
 import UserRegister from "./UserRegister";
+import UserRegisterData from "./UserRegisterData";
 import UserLogin from "./UserLogin";
 import UserLogged from "./UserLogged"
-import { ProtectedRoute } from "./ProtectedRoute";
+
 
 const Main = () => {
   return (
@@ -24,6 +26,7 @@ const Main = () => {
             <UserLogged/>
           </ProtectedRoute>}/>
         <Route path="/register" element={<UserRegister/>}/>
+        <Route path="/register/data" element={<UserRegisterData/>}/>
       </Routes>
     </main>
   )

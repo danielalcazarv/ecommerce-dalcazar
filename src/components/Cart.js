@@ -3,11 +3,13 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import { db } from "../api/firebase"
 import { collection, addDoc } from "firebase/firestore"
+import { useAuth } from "../context/UserContext"
 import CartList from "./CartList";
 import Swal from "sweetalert2";
 
 const Cart = () => {
     const { cart, addItem, removeItem, clearItem, cantidadTotal, precioTotal } = useContext(CartContext)
+    const {user} = useAuth()
 
     const limpiar = () =>{
         clearItem()
@@ -26,13 +28,15 @@ const Cart = () => {
         }
         const venta = {
             buyer : {
-                name : "Pedro Perez",
+                name : user.displayName,
                 phone : "5555-5555",
-                email : "test@test.com"
+                email : user.email,
+                uid : user.uid
             },
             items :desgloseItems(cart),
             date : new Date(),
-            total : precioTotal
+            total : precioTotal,
+            cantidad: cantidadTotal
         }
         const consulta = addDoc(ventasCollection,venta)
         consulta
