@@ -1,69 +1,47 @@
-import { createContext , useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createContext, useContext, useState } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../api/firebase";
-import Swal from "sweetalert2";
 
 export const UserContext = createContext();
-
 const {Provider} = UserContext;
 
+export const useAuth = () => {
+    const context = useContext(UserContext)
+    if(!context) throw new Error('There is not auth provider')
+    return context
+}
+
 export const CustomUserProvider = ({children}) =>{
-    const [user, setUser] = useState({
-        email:'',
-        password:''
-    })
-    const [registerEmail, setRegisterEmail] = useState("")
-    const [registerPassword, setRegisterPassword] = useState("")
-    const [loginEmail, setLoginEmail] = useState("")
-    const [loginPassword, setLoginPassword] = useState("")
+    const [error, setError] = useState("");
+    const [navigate, setNavigate] = useState(false);
 
-    useEffect(()=>{
-        onAuthStateChanged(auth,(currentUser)=>{
-            setUser(currentUser)
-        })
-    },[])
-
-    const enterNewEmail = (event) =>{
-        setRegisterEmail(event.target.value)
-    }
-    const enterNewPassword = (event) =>{
-        setRegisterPassword(event.target.value)
-    }
-    const enterEmail = (event) =>{
-        setLoginEmail(event.target.value)
-    }
-    const enterPassword = (event) =>{
-        setLoginPassword(event.target.value)
-    }
-    const register = async () =>{
-        try{
-            const user = await createUserWithEmailAndPassword(auth,registerEmail,registerPassword)
-        }catch(error){
-            Swal.fire({
-                icon: 'error',
-                title: error.message,
-            })
-        }
+    const signup = (email, password) =>{
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setError("")
+            setNavigate(true);
+        }).catch((error) => {
+            const errorCode = error.code;
+            if (errorCode ==="auth/invalid-email"){
+                setError("Email inválido.")
+            }else if (errorCode==="auth/weak-password"){
+                setError("Contraseña inválida, no puede ser menor a 6 caracteres.")
+            }else if(errorCode==="auth/email-already-in-use"){
+                setError("Email ya en uso.")
+            }else{
+                setError("Error desconocido.")
+            }
+            
+        });
+        
     };
-    const login = async () =>{
-        try{
-            const user = await signInWithEmailAndPassword(auth,loginEmail,loginPassword)
-            console.log(user)
-        }catch(error){
-            Swal.fire({
-                icon: 'error',
-                title: error.message,
-            })
-        }
-    };
-
-    const logout = async () =>{
-        await signOut(auth)
-    };
-
+    const login = (email, password) =>{
+        signInWithEmailAndPassword(auth,email,password)
+    }
 
     return (
-        <Provider value={{enterNewEmail, enterNewPassword, enterEmail, enterPassword, register, login, logout, user}}>
+        <Provider value={{ signup, login, error, navigate }}>
             {children}
         </Provider>
     )

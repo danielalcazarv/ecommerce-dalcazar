@@ -5,6 +5,7 @@ import Cart from "./Cart";
 import Search from "./Search";
 import Landing from "./Landing";
 import UserContainer from "./UserContainer";
+import UserRegister from "./UserRegister";
 
 const Main = () => {
   return (
@@ -16,6 +17,7 @@ const Main = () => {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/search" element={<Search/>}/>
         <Route path="/user" element={<UserContainer/>}/>
+        <Route path="/registrarusuario" element={<UserRegister/>}/>
       </Routes>
     </main>
   )
