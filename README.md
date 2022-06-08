@@ -18,7 +18,10 @@ SweetAlert2<br>
 La aplicación actualmente se encuentra alojada en un repositorio público de Github.
 
 ## Video Demo
-Pueden visitar el siguiente link para ver un video del funcionamiento de la página:
+Pueden visitar el siguiente link para ver un video del funcionamiento de la página: [Wheelie Bikes](https://drive.google.com/file/d/103YebzwSLZP1-Xa-55MWchDcUQ0k1Tsg/view?usp=sharing)
+
+## Próximos pasos
+Agregar barra de búsqueda.
 
 ## Offline 
 Actualmente no esta alojado en ningún servidor. 
