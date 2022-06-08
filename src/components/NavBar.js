@@ -40,12 +40,6 @@ const NavBar = () => {
                             <CartWidget/>
                             <UserWidget/>
                             <UserLogoutWidget/>
-                            <form className="d-flex">
-                                <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                                <Link to="/search">
-                                    <button className="btn btn-outline-success" type="submit">Ir</button>
-                                </Link>
-                            </form>
                         </div>
                     </div>
                 </nav>

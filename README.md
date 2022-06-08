@@ -5,9 +5,20 @@ _Este es el sitio web en desarrollo, para la cursada de REACT. Es un ecommerce d
 ## Vamos con los detalles! 🚀
 Para la creación de esta página estoy utilizando:
 CREATE-REACT-APP<br>
+REACT-ROUTER-DOM<br>
+Para el estilo:<br>
 BOOTSTRAP<br>
-Agregue fuentes de Google fonts<br>
+Fuentes de Google fonts<br>
+Material Icons de Google<br>
+React-Icons<br>
+Para las alertas:<br>
 SweetAlert2<br>
+
+## Instalación / Uso
+La aplicación actualmente se encuentra alojada en un repositorio público de Github.
+
+## Video Demo
+Pueden visitar el siguiente link para ver un video del funcionamiento de la página:
 
 ## Offline 
 Actualmente no esta alojado en ningún servidor. 
