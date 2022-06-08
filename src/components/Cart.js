@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { db } from "../api/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "../context/UserContext";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 const Cart = () => {
     const { cart, addItem, removeItem, clearItem, cantidadTotal, precioTotal } = useContext(CartContext);
     const {user} = useAuth();
+    const navigate = useNavigate();
 
     const limpiar = () =>{
         clearItem();
@@ -54,6 +55,9 @@ const Cart = () => {
             })
         })
     }
+    const validarUsuario = () =>{
+        user?guardarCompra():navigate("/login")
+    }
     return (
         <div className="container mt-4">
             <h4>Mi Carrito</h4>
@@ -69,7 +73,7 @@ const Cart = () => {
                         <CartList cart={cart} cantidadTotal={cantidadTotal} precioTotal={precioTotal} addItem={addItem} removeItem={removeItem}/>
                         <div className="d-flex flex-wrap py-2">
                             <button onClick={limpiar} className="btn btn-success m-2">Limpiar Carrito</button>
-                            <button onClick={guardarCompra} className="btn btn-success m-2">Confirmar Compra</button>
+                            <button onClick={validarUsuario} className="btn btn-success m-2">Confirmar Compra</button>
                         </div>
                     </>
                 }
