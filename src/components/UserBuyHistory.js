@@ -1,4 +1,4 @@
-import UserBuyHistoryItem from "./UserBuyHistoryItem"
+import UserBuyHistoryItem from "./UserBuyHistoryItem";
 
 const UserBuyHistory = ({ventas}) => {
     return (

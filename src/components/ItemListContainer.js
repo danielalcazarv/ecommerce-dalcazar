@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import ItemList from "./ItemList"
-import { db } from "../api/firebase"
-import { collection, getDocs } from "firebase/firestore"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemList from "./ItemList";
+import { db } from "../api/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = () => {
-    const [cargando, setCargando] = useState(true)
-    const [productos, setProductos] = useState([])
-    const {categoriaId} = useParams()
+    const [cargando, setCargando] = useState(true);
+    const [productos, setProductos] = useState([]);
+    const {categoriaId} = useParams();
 
     useEffect(()=>{
-        const productosCollection = collection(db,"productos")
-        const consulta = getDocs(productosCollection)
+        const productosCollection = collection(db,"productos");
+        const consulta = getDocs(productosCollection);
         consulta
         .then((resultado)=>{
             const productos =  resultado.docs.map(doc=>{
@@ -36,7 +36,7 @@ const ItemListContainer = () => {
         })
         .finally(()=>{
         })}, 
-        [categoriaId])
+        [categoriaId]);
     
     return(
         cargando ? 

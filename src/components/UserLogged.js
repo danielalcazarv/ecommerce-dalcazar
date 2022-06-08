@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useAuth } from "../context/UserContext";
 import { Link } from "react-router-dom";
 import { db } from "../api/firebase";
@@ -6,27 +6,27 @@ import { collection, getDocs } from "firebase/firestore";
 import UserBuyHistory from "./UserBuyHistory";
 
 const UserLogged = () => {
-    const {user} = useAuth()
-    const [cargando, setCargando] = useState(true)
-    const [ventas, setVentas] = useState({})
+    const {user} = useAuth();
+    const [cargando, setCargando] = useState(true);
+    const [ventas, setVentas] = useState({});
 
     useEffect(()=>{
-        const ventasCollection = collection(db,"ventas")
-        const consulta = getDocs(ventasCollection)
+        const ventasCollection = collection(db,"ventas");
+        const consulta = getDocs(ventasCollection);
         consulta
         .then((resultado)=>{
             const ventas =  resultado.docs.map(doc=>{
                 const ventasConId = {
                     ...doc.data(),
                     id: doc.id
-                }
+                };
                 return ventasConId
-            })
-            setVentas(ventas.filter(x=>x.buyer.uid===user.uid))
-            setCargando(false)
+            });
+            setVentas(ventas.filter(x=>x.buyer.uid===user.uid));
+            setCargando(false);
         })
         .catch((error)=>{
-            console.log(error)
+            console.log(error);
         })
         .finally(()=>{
         })}, 

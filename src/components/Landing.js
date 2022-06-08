@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react"
-import ItemList from "./ItemList"
-import { db } from "../api/firebase"
-import { collection, getDocs } from "firebase/firestore"
-import LandingCarousel from "./LandingCarousel"
-
+import { useEffect, useState } from "react";
+import { db } from "../api/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import LandingCarousel from "./LandingCarousel";
+import ItemList from "./ItemList";
 
 const Landing = () => {
-    const [productos, setProductos] = useState([])
+    const [productos, setProductos] = useState([]);
     useEffect(()=>{
-        const productosCollection = collection(db,"productos")
-        const consulta = getDocs(productosCollection)
+        const productosCollection = collection(db,"productos");
+        const consulta = getDocs(productosCollection);
         consulta
         .then((resultado)=>{
             const productos =  resultado.docs.map(doc=>{
@@ -25,7 +24,7 @@ const Landing = () => {
         })
         .finally(()=>{
         })}, 
-        [])
+        []);
     
     return (
         <>

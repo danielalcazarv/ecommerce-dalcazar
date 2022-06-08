@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/UserContext";
 
 const UserWidget = () => {
-    const {user} = useAuth()
+    const {user} = useAuth();
     return (
         !user ?
         (<Link to="/login">

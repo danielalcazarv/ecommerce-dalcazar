@@ -1,8 +1,8 @@
-import { useState } from "react"
-import Swal from "sweetalert2"
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ItemCount = ( {init,stock,onAdd} ) => {
-    const [contador, setContador] = useState(init)
+    const [contador, setContador] = useState(init);
     const sumar = () => {
         contador<stock ? setContador(contador+1):
             Swal.fire({
@@ -10,8 +10,8 @@ const ItemCount = ( {init,stock,onAdd} ) => {
                 title: 'Cantidad Máxima Seleccionada',
                 showConfirmButton: false,
                 timer: 1200
-            })
-    }
+            });
+    };
     const restar = () => {
         contador<2 ?
             Swal.fire({
@@ -20,15 +20,15 @@ const ItemCount = ( {init,stock,onAdd} ) => {
                 showConfirmButton: false,
                 timer: 1200
             }):
-            setContador(contador-1)
-    }
+            setContador(contador-1);
+    };
     const confirmar = () =>{
         onAdd(contador)
         Swal.fire({
             icon: 'success',
             title: 'Agregaste '+contador+' unidad/es',
-        })
-    }
+        });
+    };
     return (
     <>
         <div className="d-flex flex-wrap justify-content-evenly py-2">

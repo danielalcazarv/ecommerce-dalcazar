@@ -1,4 +1,4 @@
-import Items from "./Items"
+import Items from "./Items";
 
 const ItemList = ({productos}) => {
     return(

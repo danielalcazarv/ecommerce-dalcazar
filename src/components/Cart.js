@@ -1,31 +1,31 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-import { db } from "../api/firebase"
-import { collection, addDoc } from "firebase/firestore"
-import { useAuth } from "../context/UserContext"
+import { db } from "../api/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { useAuth } from "../context/UserContext";
 import CartList from "./CartList";
 import Swal from "sweetalert2";
 
 const Cart = () => {
-    const { cart, addItem, removeItem, clearItem, cantidadTotal, precioTotal } = useContext(CartContext)
-    const {user} = useAuth()
+    const { cart, addItem, removeItem, clearItem, cantidadTotal, precioTotal } = useContext(CartContext);
+    const {user} = useAuth();
 
     const limpiar = () =>{
-        clearItem()
+        clearItem();
         Swal.fire({
             icon: 'warning',
             title: 'Su Carrito esta vacio',
             showConfirmButton: false,
             timer: 1200
-        })
+        });
     }
     const guardarCompra = () =>{
-        const ventasCollection = collection(db,"ventas")
+        const ventasCollection = collection(db,"ventas");
         const desgloseItems = (arr) =>{
             const filtroKeys = arr.map(({item:{id,titulo,precio},quantity}) => ({item:{id,titulo,precio},quantity}));
             return filtroKeys;
-        }
+        };
         const venta = {
             buyer : {
                 name : user.displayName,
@@ -37,7 +37,7 @@ const Cart = () => {
             date : new Date(),
             total : precioTotal,
             cantidad: cantidadTotal
-        }
+        };
         const consulta = addDoc(ventasCollection,venta)
         consulta
         .then((resultado) => {

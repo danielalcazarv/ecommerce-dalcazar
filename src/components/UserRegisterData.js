@@ -1,8 +1,8 @@
-import { useState } from "react"
-import { useAuth } from "../context/UserContext"
-import { useNavigate } from "react-router-dom"
-import { db } from "../api/firebase"
-import { collection, addDoc } from "firebase/firestore"
+import { useState } from "react";
+import { useAuth } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import { db } from "../api/firebase";
+import { collection, addDoc } from "firebase/firestore";
 import UserAlert from "./UserAlert";
 import Swal from "sweetalert2";
 
@@ -13,16 +13,16 @@ const UserRegisterData = () => {
         direccion:"",
         provincia:"",
         telefono:"",
-    })
-    const {user} = useAuth()
+    });
+    const {user} = useAuth();
     const [errorF, setErrorF] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const handleChange = ({target: {name, value}}) =>{
         setNewUser({...newUser,[name]:value})
-    }
+    };
     const handleSubmit = (e) =>{
-        e.preventDefault()
-        const usersCollection = collection(db, "usuarios")
+        e.preventDefault();
+        const usersCollection = collection(db, "usuarios");
         const usuario ={
             nombre:newUser.nombre,
             apellido:newUser.apellido,
@@ -30,11 +30,10 @@ const UserRegisterData = () => {
             provincia:newUser.provincia,
             telefono:newUser.telefono,
             idauth: user.uid
-        }
+        };
         const consulta = addDoc(usersCollection,usuario)
         consulta
         .then((resultado) => {
-            console.log(resultado.id)
             Swal.fire({
                 icon: 'success',
                 title:'Has finalizado tu registro de forma exitosa!',
@@ -44,7 +43,7 @@ const UserRegisterData = () => {
         .catch((error) => {
             setErrorF(error.code)
         })
-    }
+    };
 
     return (
         <div className="container mt-4">

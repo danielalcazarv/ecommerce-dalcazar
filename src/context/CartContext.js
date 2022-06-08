@@ -6,9 +6,9 @@ const {Provider} = CartContext;
 
 export const CustomProvider = ({ defaultValue = [], children}) =>{
 
-    const [cart, setCart] = useState(defaultValue)
-    const [cantidadTotal,setCantidadTotal] = useState(0)
-    const [precioTotal,setPrecioTotal] = useState(0)
+    const [cart, setCart] = useState(defaultValue);
+    const [cantidadTotal,setCantidadTotal] = useState(0);
+    const [precioTotal,setPrecioTotal] = useState(0);
 
     const isInCart = (id) =>{
         return cart.find(e => e.item.id === id);
@@ -36,7 +36,7 @@ export const CustomProvider = ({ defaultValue = [], children}) =>{
                 }
             ])
         }
-    }
+    };
 
     const removeItem = (id, cantidad, precio) =>{
         const newCart = [...cart].filter((element) => element.item.id !== id);
@@ -46,9 +46,9 @@ export const CustomProvider = ({ defaultValue = [], children}) =>{
     }
 
     const clearItem = () =>{
-        setCart([])
-        setCantidadTotal(0)
-        setPrecioTotal(0)
+        setCart([]);
+        setCantidadTotal(0);
+        setPrecioTotal(0);
     }
 
     return (

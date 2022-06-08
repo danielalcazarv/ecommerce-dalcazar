@@ -9,7 +9,8 @@ const UserLogoutWidget = () => {
         }catch(error){
             console.log(error);
         }
-    }
+    };
+    
     return (
         !user ?
         (<p></p>):

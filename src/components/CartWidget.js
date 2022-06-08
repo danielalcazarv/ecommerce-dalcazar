@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext"
+import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
-    const {cantidadTotal} = useContext(CartContext)
+    const {cantidadTotal} = useContext(CartContext);
     return (
         <Link to="/cart" className="position-relative">
             <span className="material-icons" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver Carro">

@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { useAuth } from "../context/UserContext"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { useAuth } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import UserAlert from "./UserAlert";
@@ -9,17 +9,17 @@ const UserLogin = () => {
     const [user, setUser] = useState ({
         email:"",
         password:"",
-    })
-    const {login, googleLogin, resetPassword} = useAuth()
+    });
+    const {login, googleLogin, resetPassword} = useAuth();
     const [errorF, setErrorF] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleChange = ({target: {name, value}}) =>{
-        setUser({...user,[name]:value})
-    }
+        setUser({...user,[name]:value});
+    };
     const handleSubmit = async (e) =>{
-        e.preventDefault()
-        setErrorF("")
+        e.preventDefault();
+        setErrorF("");
         try{
             await login(user.email, user.password)
             navigate('/cart')
@@ -43,7 +43,7 @@ const UserLogin = () => {
                 default : setErrorF(error.code);
             }
         }
-    }
+    };
     const handleGoogleSignin = async () =>{
         try {
             await googleLogin();
@@ -58,7 +58,7 @@ const UserLogin = () => {
                 default : setErrorF(error.code);
             }
         }
-    }
+    };
     const handleResetPassword = async (e) => {
         e.preventDefault();
         if (!user.email) return setErrorF("Ingresa un email para cambiar contraseña.");

@@ -8,7 +8,7 @@ import Landing from "./Landing";
 import UserRegister from "./UserRegister";
 import UserRegisterData from "./UserRegisterData";
 import UserLogin from "./UserLogin";
-import UserLogged from "./UserLogged"
+import UserLogged from "./UserLogged";
 
 
 const Main = () => {

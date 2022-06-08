@@ -1,19 +1,19 @@
-import { useState } from "react"
-import { useAuth } from "../context/UserContext"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { useAuth } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 import UserAlert from "./UserAlert";
 
 const UserRegister = () => {
     const [newUser, setNewUser] = useState ({
         email:"",
         password:"",
-    })
-    const {signup} = useAuth()
+    });
+    const {signup} = useAuth();
     const [errorF, setErrorF] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const handleChange = ({target: {name, value}}) =>{
         setNewUser({...newUser,[name]:value})
-    }
+    };
     const handleSubmit = async (e) =>{
         e.preventDefault()
         setErrorF("")
@@ -36,7 +36,7 @@ const UserRegister = () => {
                 default : setErrorF(error.code);
             }
         }
-    }
+    };
 
     return (
         <div className="container mt-4">

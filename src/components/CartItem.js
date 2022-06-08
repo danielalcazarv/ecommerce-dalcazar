@@ -2,10 +2,10 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 
 const CartItem = ({ cart, removeItem }) => {
-    const multi = (cart.item.precio*cart.quantity)
+    const multi = (cart.item.precio*cart.quantity);
     const handleRemove = () =>{
         removeItem(cart.item.id,cart.quantity,multi)
-    }
+    };
 
     return (
         <tr className="text-center align-middle">
