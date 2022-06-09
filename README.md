@@ -7,6 +7,7 @@ Para la creación de esta página estoy utilizando:
 CREATE-REACT-APP<br>
 REACT-ROUTER-DOM<br>
 Para el estilo:<br>
+SASS<br>
 BOOTSTRAP<br>
 Fuentes de Google fonts<br>
 Material Icons de Google<br>
